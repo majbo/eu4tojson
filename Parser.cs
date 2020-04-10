@@ -130,6 +130,9 @@ namespace EUIVParser.App
 
         [JsonProperty(PropertyName = "institutions")]
         public IList<int> Institutions { get; private set; }
+        
+        [JsonProperty(PropertyName = "estimated_monthly_income")]
+        public float EstimatedMonthlyIncome { get; private set; }
 
         public void TokenCallback(ParadoxParser parser, string token)
         {
@@ -152,6 +155,9 @@ namespace EUIVParser.App
                     break;
                 case "colors":
                     Colors = parser.Parse(new Colors());
+                    break;
+                case "estimated_monthly_income":
+                    EstimatedMonthlyIncome = parser.ReadFloat();
                     break;
             }
         }
