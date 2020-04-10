@@ -40,7 +40,7 @@ namespace EUIVParser.App
 
             File.WriteAllText(Path.Combine(dir, fileName), json);
 
-            Console.WriteLine($"\nParsing finished after {sw.Elapsed.TotalSeconds:N2}s");
+            Console.WriteLine($"\nExporting finished after {sw.Elapsed.TotalSeconds:N2}s");
         }
 
         private static Stream OpenSaveGame(string path)
