@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EUIVParser.App", "EUIVParser.App.csproj", "{153B90A5-16AE-4CF0-83C5-3D81CBB2EAE3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EU4ToJson", "EU4ToJson.csproj", "{153B90A5-16AE-4CF0-83C5-3D81CBB2EAE3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

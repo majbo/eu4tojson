@@ -4,7 +4,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Pdoxcl2Sharp;
 
-namespace EUIVParser.App
+namespace EU4ToJson
 {
     public class Parser : IParadoxRead
     {

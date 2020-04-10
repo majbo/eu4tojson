@@ -7,7 +7,7 @@ using System.Text;
 using Newtonsoft.Json;
 using Pdoxcl2Sharp;
 
-namespace EUIVParser.App
+namespace EU4ToJson
 {
     class Program
     {
