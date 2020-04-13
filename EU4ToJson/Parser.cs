@@ -110,8 +110,7 @@ namespace EU4ToJson
             Tag = tag;
         }
 
-        [JsonIgnore] 
-        public string Tag { get; }
+        [JsonIgnore] public string Tag { get; }
 
         [JsonProperty(PropertyName = "development")]
         public float Development { get; private set; }
@@ -130,9 +129,12 @@ namespace EU4ToJson
 
         [JsonProperty(PropertyName = "institutions")]
         public IList<int> Institutions { get; private set; }
-        
+
         [JsonProperty(PropertyName = "estimated_monthly_income")]
         public float EstimatedMonthlyIncome { get; private set; }
+
+        [JsonProperty(PropertyName = "technology")]
+        public Technology Technology { get; private set; }
 
         public void TokenCallback(ParadoxParser parser, string token)
         {
@@ -158,6 +160,37 @@ namespace EU4ToJson
                     break;
                 case "estimated_monthly_income":
                     EstimatedMonthlyIncome = parser.ReadFloat();
+                    break;
+                case "technology":
+                    Technology = parser.Parse(new Technology());
+                    break;
+            }
+        }
+    }
+
+    public class Technology : IParadoxRead
+    {
+        [JsonProperty(PropertyName = "adm_tech")]
+        public int AdmTech { get; set; }
+
+        [JsonProperty(PropertyName = "dip_tech")]
+        public int DipTech { get; set; }
+
+        [JsonProperty(PropertyName = "mil_tech")]
+        public int MilTech { get; set; }
+
+        public void TokenCallback(ParadoxParser parser, string token)
+        {
+            switch (token)
+            {
+                case "adm_tech":
+                    AdmTech = parser.ReadInt32();
+                    break;
+                case "dip_tech":
+                    DipTech = parser.ReadInt32();
+                    break;
+                case "mil_tech":
+                    MilTech = parser.ReadInt32();
                     break;
             }
         }
