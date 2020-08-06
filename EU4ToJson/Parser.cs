@@ -135,6 +135,12 @@ namespace EU4ToJson
 
         [JsonProperty(PropertyName = "technology")]
         public Technology Technology { get; private set; }
+        
+        [JsonProperty(PropertyName = "great_power_score")]
+        public float GreatPowerScore { get; private set; }
+        
+        [JsonProperty(PropertyName = "score_rating")]
+        public IList<double> ScoreRatings { get; private set; }
 
         public void TokenCallback(ParadoxParser parser, string token)
         {
@@ -163,6 +169,12 @@ namespace EU4ToJson
                     break;
                 case "technology":
                     Technology = parser.Parse(new Technology());
+                    break;
+                case "great_power_score":
+                    GreatPowerScore = parser.ReadFloat();
+                    break;
+                case "score_rating":
+                    ScoreRatings = parser.ReadDoubleList();
                     break;
             }
         }
